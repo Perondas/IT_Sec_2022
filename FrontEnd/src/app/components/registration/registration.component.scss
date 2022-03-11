@@ -1,0 +1,33 @@
+.main-div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cornsilk;
+}
+
+.registration-card {
+  background-color: azure;
+}
+
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.spacing {
+  margin-top: 20px;
+}
+
+.registration-error {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  font-size: larger;
+  text-align: center;
+  color: red;
+  border: 3px;
+  border-radius: 5px;
+  border-color: red;
+  border-style: solid;
+}

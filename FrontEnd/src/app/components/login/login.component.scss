@@ -1,0 +1,33 @@
+.main-div {
+  background-color: cornsilk;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.spacing {
+  margin-top: 20px;
+}
+
+.login-card {
+  background-color: azure;
+}
+
+.login-error {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  font-size: larger;
+  text-align: center;
+  color: red;
+  border: 3px;
+  border-radius: 5px;
+  border-color: red;
+  border-style: solid;
+}

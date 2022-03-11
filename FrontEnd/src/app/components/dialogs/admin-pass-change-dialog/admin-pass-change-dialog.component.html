@@ -1,0 +1,81 @@
+<h1 mat-dialog-title>Update password</h1>
+<form [formGroup]="updatePassForm" (ngSubmit)="onSaveClick()">
+  <div mat-dialog-content>
+    <div class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Old Password</mat-label>
+        <input
+          matInput
+          id="oldPass"
+          type="text"
+          formControlName="oldPass"
+          required
+        />
+        <mat-error *ngIf="formMember('oldPass').hasError('required')"
+          >Old password is required</mat-error
+        >
+        <mat-error *ngIf="formMember('oldPass').hasError('match')"
+          >Does not match</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          id="password"
+          type="text"
+          formControlName="password"
+          required
+        />
+        <mat-error *ngIf="formMember('password').hasError('required')"
+          >Password is required</mat-error
+        >
+        <mat-error *ngIf="formMember('password').hasError('minlength')"
+          >Password must be at least {{ minPw }} characters long</mat-error
+        >
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Repeat Password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          id="password2"
+          type="text"
+          formControlName="password2"
+          required
+        />
+        <mat-error *ngIf="formMember('password2').hasError('required')"
+          >Confirmation is required</mat-error
+        >
+        <mat-error
+          *ngIf="formMember('password2').hasError('confirmedValidator')"
+          >Passwords do not match</mat-error
+        >
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button type="submit">Save</button>
+  </div>
+</form>

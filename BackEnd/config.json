@@ -1,0 +1,10 @@
+{
+    "db": {
+        "hostname": "webdevdb.int",
+        "port": 28015,
+        "db_name": "covid-db"
+    },
+    "api": {
+        "port": 3000
+    }
+}

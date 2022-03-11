@@ -1,0 +1,61 @@
+<mat-toolbar class="toolbar">
+  <h1>Details</h1>
+  <span class="spacer"></span>
+  <button mat-raised-button (click)="onLogout()">Logout</button>
+  <button mat-raised-button routerLink="/data">Back to Dataview</button>
+</mat-toolbar>
+<div class="main-div">
+  <mat-card class="details-card">
+    <mat-card-title
+      ><h1>Admin: {{ loggedAdmin.username }}</h1></mat-card-title
+    >
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="info-container">
+        <div class="child">
+          <h2>Profile Picture:</h2>
+          <div class="image-container">
+            <img
+              *ngIf="loggedAdmin.imageLink"
+              src="{{ loggedAdmin.imageLink }}"
+            />
+            <mat-icon class="icon" *ngIf="!loggedAdmin.imageLink"
+              >account_circle</mat-icon
+            >
+          </div>
+        </div>
+        <div class="child">
+          <h2>
+            First Name:
+            <p class="inline" *ngIf="loggedAdmin.firstName">
+              {{ loggedAdmin.firstName }}
+            </p>
+            <p class="inline" *ngIf="!loggedAdmin.firstName">
+              First Name not set
+            </p>
+          </h2>
+          <h2>
+            Last Name:
+            <p class="inline" *ngIf="loggedAdmin.lastName">
+              {{ loggedAdmin.lastName }}
+            </p>
+            <p class="inline" *ngIf="!loggedAdmin.lastName">
+              Last Name not set
+            </p>
+          </h2>
+          <h2>
+            Email:
+            <p class="inline" *ngIf="loggedAdmin.email">
+              {{ loggedAdmin.email }}
+            </p>
+            <p class="inline" *ngIf="!loggedAdmin.email">Email not set</p>
+          </h2>
+        </div>
+      </div>
+      <div>
+        <button mat-button (click)="onUpdateDetails()">Update Details</button>
+        <button mat-button (click)="onUpdatePass()">Update Password</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

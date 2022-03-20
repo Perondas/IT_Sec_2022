@@ -3,6 +3,7 @@ import { Admin } from "../../models/model.admin";
 import Express from "express";
 import { loginAdmin } from "../../db.services/db.admin.userService";
 import bodyParser from "body-parser";
+import { log } from "../../db.services/db.logging.service";
 
 export async function registerSessionAdmin(app: Express.Express) {
   const jsonParser = bodyParser.json();
@@ -16,6 +17,7 @@ async function verifyAdmin(req: Request, res: Response) {
   };
 
   if (!admin.username || !admin.password) {
+    log("Failed to verify admin. Bad request!", req.ip);
     res.status(400).send();
     return;
   }
@@ -24,6 +26,7 @@ async function verifyAdmin(req: Request, res: Response) {
     !(typeof admin.username === "string") ||
     !(typeof admin.password === "string")
   ) {
+    log("Failed to verify admin. Bad request!", req.ip);
     res.status(400).send();
     return;
   }
@@ -32,12 +35,15 @@ async function verifyAdmin(req: Request, res: Response) {
     .then((admin) => {
       if (admin != null) {
         admin.password = "";
+        log(`Verified admin: ${admin.username}`, req.ip);
         res.status(200).json(admin);
       } else {
+        log(`Failed to verify admin. Unauthorized!`, req.ip);
         res.status(401).send();
       }
     })
     .catch((reason) => {
+      log(`Failed to verify admin. Internal server error!`, req.ip);
       res.status(500).json(reason);
     });
 }

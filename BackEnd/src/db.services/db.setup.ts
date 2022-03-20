@@ -17,7 +17,7 @@ export async function setUpDb() {
     console.log("Created New Db!");
   }
 
-  const db = r.db("covid-db");
+  const db = r.db(config.db.db_name);
   const tableList = await db.tableList().run(conn);
 
   if (!tableList.includes("admins")) {
@@ -29,20 +29,18 @@ export async function setUpDb() {
     console.log("Created table admins");
   }
 
-  if (!tableList.includes("users")) {
+  if (!tableList.includes("devices")) {
     await db
-      .tableCreate("users", {
-        primary_key: "uuid",
+      .tableCreate("devices", {
+        primary_key: "name",
       })
       .run(conn);
-    console.log("Created table users");
+    console.log("Created table devices");
   }
 
   if (!tableList.includes("logs")) {
     await db
-      .tableCreate("logs", {
-        primary_key: "id",
-      })
+      .tableCreate("logs")
       .run(conn);
     console.log("Created table logs");
   }

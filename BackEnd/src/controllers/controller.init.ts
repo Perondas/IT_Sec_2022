@@ -1,24 +1,22 @@
 import Express from "express";
-import { registerGetUsers } from "./users/controller.get.users";
+import { registerGetDevices } from "./devices/controller.get.devices";
 import { registerAdminRegistration } from "./admins/controller.post.register.admin";
-import { registerAuthenticateAdmin } from "./admins/controller.head.admin";
 import { registerSessionAdmin } from "./admins/controller.post.session.admin";
-import { registerAddUser } from "./users/controller.post.user";
+import { registerAddDevice } from "./devices/controller.post.device";
 import { registerAdminUpdate } from "./admins/controller.post.update.admin";
-import { registerDeleteUsers } from "./users/controller.delete.user";
-import { registerUpdateUsers } from "./users/controller.post.update.user";
-import { registerCheckInUsers } from "./users/controller.post.user.check-in";
-import { registerCheckOutUsers } from "./users/controller.post.user.check-out";
+import { registerDeleteDevices } from "./devices/controller.delete.device";
+import { registerUpdateDevices } from "./devices/controller.post.update.device";
+import { registerToggleDevices } from "./devices/controller.post.device.toggle";
+import { registerGetLogs } from "./logsControllers/controller.get.logs";
 
 export async function initControllers(app: Express.Express) {
   await registerAdminRegistration(app);
-  await registerAuthenticateAdmin(app);
   await registerSessionAdmin(app);
   await registerAdminUpdate(app);
-  await registerAddUser(app);
-  await registerGetUsers(app);
-  await registerDeleteUsers(app);
-  await registerUpdateUsers(app);
-  await registerCheckInUsers(app);
-  await registerCheckOutUsers(app);
+  await registerAddDevice(app);
+  await registerGetDevices(app);
+  await registerDeleteDevices(app);
+  await registerUpdateDevices(app);
+  await registerToggleDevices(app);
+  await registerGetLogs(app);
 }

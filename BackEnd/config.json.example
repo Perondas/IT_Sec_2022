@@ -1,8 +1,8 @@
 {
     "db": {
-        "hostname": "webdevdb.int",
+        "hostname": "hostname",
         "port": 28015,
-        "db_name": "covid-db"
+        "db_name": "name"
     },
     "api": {
         "port": 3000

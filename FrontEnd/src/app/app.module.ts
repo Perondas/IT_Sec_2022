@@ -32,7 +32,6 @@ import { AdminPassChangeDialogComponent } from './components/dialogs/admin-pass-
 import { AdminDetailsComponent } from './components/admin-details/admin-details.component';
 import { MatSortModule } from '@angular/material/sort';
 import { AboutDialogComponent } from './components/dialogs/about-dialog/about-dialog.component';
-import { CheckInOutComponent } from './components/check-in-out/check-in-out.component';
 import { MessageBoxComponent } from './components/dialogs/message-box/message-box.component';
 import { ConfirmBoxComponent } from './components/dialogs/confirm-box/confirm-box.component';
 import { LicensesComponent } from './components/licenses/licenses.component';
@@ -40,6 +39,8 @@ import { DeviceTableComponent } from './components/device-table/device-table.com
 import { AddDeviceDialogComponent } from './components/dialogs/add-device-dialog/add-device-dialog/add-device-dialog.component';
 import { HomeComponent } from './components/home/home.component';
 import { UpdateDeviceDialogComponent } from './components/dialogs/update-device-dialog/update-device-dialog/update-device-dialog.component';
+import { LogsTableComponent } from './components/logs-table/logs-table.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,6 @@ import { UpdateDeviceDialogComponent } from './components/dialogs/update-device-
     AdminPassChangeDialogComponent,
     AdminDetailsComponent,
     AboutDialogComponent,
-    CheckInOutComponent,
     MessageBoxComponent,
     ConfirmBoxComponent,
     LicensesComponent,
@@ -63,6 +63,7 @@ import { UpdateDeviceDialogComponent } from './components/dialogs/update-device-
     AddDeviceDialogComponent,
     HomeComponent,
     UpdateDeviceDialogComponent,
+    LogsTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +90,7 @@ import { UpdateDeviceDialogComponent } from './components/dialogs/update-device-
     QRCodeModule,
     MatSortModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

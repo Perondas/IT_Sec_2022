@@ -20,16 +20,10 @@ import { LoginComponent } from './components/login/login.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { AdminDataViewComponent } from './components/admin-data-view/admin-data-view.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CreateUserDialogComponent } from './components/dialogs/create-user-dialog/create-user-dialog.component';
 import { ShowQrCodeDialogComponent } from './components/dialogs/show-qr-code-dialog/show-qr-code-dialog.component';
 import { QRCodeModule } from 'angularx-qrcode';
-import { UpdateUserDialogComponent } from './components/dialogs/update-user-dialog/update-user-dialog.component';
-import { UpdateAdminDialogComponent } from './components/dialogs/update-admin-dialog/update-admin-dialog.component';
-import { AdminPassChangeDialogComponent } from './components/dialogs/admin-pass-change-dialog/admin-pass-change-dialog.component';
-import { AdminDetailsComponent } from './components/admin-details/admin-details.component';
 import { MatSortModule } from '@angular/material/sort';
 import { AboutDialogComponent } from './components/dialogs/about-dialog/about-dialog.component';
 import { MessageBoxComponent } from './components/dialogs/message-box/message-box.component';
@@ -48,13 +42,7 @@ import { DatePipe } from '@angular/common';
     PageNotFoundComponent,
     LoginComponent,
     RegistrationComponent,
-    AdminDataViewComponent,
-    CreateUserDialogComponent,
     ShowQrCodeDialogComponent,
-    UpdateUserDialogComponent,
-    UpdateAdminDialogComponent,
-    AdminPassChangeDialogComponent,
-    AdminDetailsComponent,
     AboutDialogComponent,
     MessageBoxComponent,
     ConfirmBoxComponent,

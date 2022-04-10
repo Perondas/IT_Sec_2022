@@ -129,7 +129,6 @@ export class DeviceService {
         },
       }
     );
-    // TODO: Fix
 
     if (response.status !== 204) {
       response

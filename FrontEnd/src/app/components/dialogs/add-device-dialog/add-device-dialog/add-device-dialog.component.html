@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Add a new device</h1>
+<form [formGroup]="newDeviceForm" (ngSubmit)="onSaveClick()">
+  <div mat-dialog-content>
+    <div class="form-container">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="formMember('name').hasError('required')"
+          >Name is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <input matInput formControlName="type" required />
+        <mat-error *ngIf="formMember('type').hasError('required')"
+          >Type is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Manufacturer</mat-label>
+        <input matInput formControlName="manufacturer" required />
+        <mat-error *ngIf="formMember('manufacturer').hasError('required')"
+          >Manufacturer is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Place</mat-label>
+        <input matInput formControlName="place" required />
+        <mat-error *ngIf="formMember('place').hasError('required')"
+          >Place is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+  </div>
+  <mat-divider></mat-divider>
+  
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button type="submit">Save</button>
+  </div>
+</form>

@@ -36,6 +36,10 @@ import { CheckInOutComponent } from './components/check-in-out/check-in-out.comp
 import { MessageBoxComponent } from './components/dialogs/message-box/message-box.component';
 import { ConfirmBoxComponent } from './components/dialogs/confirm-box/confirm-box.component';
 import { LicensesComponent } from './components/licenses/licenses.component';
+import { DeviceTableComponent } from './components/device-table/device-table.component';
+import { AddDeviceDialogComponent } from './components/dialogs/add-device-dialog/add-device-dialog/add-device-dialog.component';
+import { HomeComponent } from './components/home/home.component';
+import { UpdateDeviceDialogComponent } from './components/dialogs/update-device-dialog/update-device-dialog/update-device-dialog.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +59,10 @@ import { LicensesComponent } from './components/licenses/licenses.component';
     MessageBoxComponent,
     ConfirmBoxComponent,
     LicensesComponent,
+    DeviceTableComponent,
+    AddDeviceDialogComponent,
+    HomeComponent,
+    UpdateDeviceDialogComponent,
   ],
   imports: [
     BrowserModule,

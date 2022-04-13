@@ -1,0 +1,78 @@
+<div class="mat-elevation-z8" color="primary">
+  <div class="table-information-row-container" color="primary">
+    <!-- Add-Button -->
+    <button mat-icon-button matSuffix (click)="onAddDevice()" *ngIf="authService.isLoggedIn">
+      <mat-icon> add </mat-icon>
+    </button>
+
+    <!-- Refresh-Button -->
+    <button mat-icon-button (click)="getDevices()">
+      <mat-icon> refresh </mat-icon>
+    </button>
+  </div>
+
+  <div class="table-container" color="primary">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="left-aligned-header">
+          Name
+        </th>
+        <td mat-cell *matCellDef="let element" class="left-aligned-content">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef class="left-aligned-header">
+          Type
+        </th>
+        <td mat-cell *matCellDef="let element" class="left-aligned-content">
+          {{ element.type }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="manufacturer">
+        <th mat-header-cell *matHeaderCellDef class="left-aligned-header">
+          Manufacturer
+        </th>
+        <td mat-cell *matCellDef="let element" class="left-aligned-content">
+          {{ element.manufacturer }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="place">
+        <th mat-header-cell *matHeaderCellDef class="left-aligned-header">
+          Place
+        </th>
+        <td mat-cell *matCellDef="let element" class="left-aligned-content">
+          {{ element.place }}
+        </td>
+      </ng-container>
+
+      <!-- Toggle Button Column -->
+      <ng-container matColumnDef="isOn">
+        <th mat-header-cell *matHeaderCellDef class="center-aligned-header">
+          Status
+        </th>
+        <td mat-cell *matCellDef="let element" class="center-aligned-content">
+          <mat-slide-toggle [checked]="element.isOn" (change)="onToggleDevice(element)"></mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="center-aligned-header">
+          Actions
+        </th>
+        <td mat-cell *matCellDef="let device" class="center-aligned-content">
+          <button mat-button (click)="onUpdateDevice(device)">Update</button>
+          <button mat-button (click)="onDeleteDevice(device.name)" color="warn">
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.form-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 50vw;
+  }
+  
+  .form-container * {
+    margin-right: 10px;
+  }
+  

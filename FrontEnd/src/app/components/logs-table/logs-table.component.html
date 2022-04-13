@@ -1,0 +1,35 @@
+<div class="mat-elevation-z8" color="primary">
+  <div class="table-container" color="primary">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="left-aligned-header">
+          Time
+        </th>
+        <td mat-cell *matCellDef="let element" class="left-aligned-content">
+          {{ getFormattedDate(element.time) }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="text">
+        <th mat-header-cell *matHeaderCellDef class="left-aligned-header">
+            Text
+        </th>
+        <td mat-cell *matCellDef="let element" class="left-aligned-content">
+          {{ element.text }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ip">
+        <th mat-header-cell *matHeaderCellDef class="left-aligned-header">
+          IP
+        </th>
+        <td mat-cell *matCellDef="let element" class="left-aligned-content">
+          {{ element.ip }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

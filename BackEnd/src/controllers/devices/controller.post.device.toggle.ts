@@ -19,7 +19,7 @@ async function toggleDevice(req: Request, res: Response) {
   const deviceId = req.params["deviceId"];
   toggleDeviceDb(deviceId).then(() => {
     log(`Toggled device: ${deviceId}`, req.ip);
-    res.status(204);
+    res.status(204).send();
   })
   .catch((reason) => {
     log("Failed to toggle device. Internal server error!", req.ip);

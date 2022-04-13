@@ -1,0 +1,16 @@
+.menu-spacer {
+    flex: 1 1 auto;
+}
+
+.log-in-out-register-button {
+    padding-right: 5em;
+}
+
+::ng-deep.mat-menu-panel,
+.menu-button {
+  width: 12em;
+}
+
+.container {
+    margin: 1em;
+}

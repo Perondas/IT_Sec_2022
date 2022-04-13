@@ -1,7 +1,7 @@
 import { Device } from "../models/model.device";
 
 export function isDevice(input: any): Device | null {
-  if (!input.name || !input.type || ! input.manufacturer || !input.place || !input.isOn) {
+  if (!input.name || !input.type || ! input.manufacturer || !input.place || input.isOn == null) {
     return null;
   }
 

@@ -1,0 +1,27 @@
+.table-container {
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.center-aligned-header,
+.center-aligned-content,
+.left-aligned-header,
+.left-aligned-content {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.center-aligned-header,
+.center-aligned-content {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.left-aligned-header,
+.left-aligned-content {
+  text-align: left !important;
+  vertical-align: middle !important;
+}

@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthenticationService {
   private storageName = 'User';
+  public isLoggedIn: boolean = false;
+
   constructor() {}
   public get user(): Admin | null {
     const user = sessionStorage.getItem(this.storageName);
@@ -38,12 +40,14 @@ export class AuthenticationService {
       admin.authdata = window.btoa(username + ':' + password);
       admin.password = password;
       sessionStorage.setItem(this.storageName, JSON.stringify(admin));
+      this.isLoggedIn = true;
       return admin;
     }
   }
 
   public logout() {
     sessionStorage.removeItem(this.storageName);
+    this.isLoggedIn = false;
   }
 
   public async register(admin: Admin): Promise<Admin> {
@@ -70,8 +74,12 @@ export class AuthenticationService {
       newAdmin.authdata = window.btoa(admin.username + ':' + admin.password);
       newAdmin.password = admin.password;
       sessionStorage.setItem(this.storageName, JSON.stringify(newAdmin));
-
+      this.isLoggedIn = true;
       return newAdmin;
     }
+  }
+
+  public loggedIn() {
+    return this.isLoggedIn;
   }
 }

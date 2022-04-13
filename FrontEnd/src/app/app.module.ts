@@ -20,22 +20,22 @@ import { LoginComponent } from './components/login/login.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { AdminDataViewComponent } from './components/admin-data-view/admin-data-view.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CreateUserDialogComponent } from './components/dialogs/create-user-dialog/create-user-dialog.component';
 import { ShowQrCodeDialogComponent } from './components/dialogs/show-qr-code-dialog/show-qr-code-dialog.component';
 import { QRCodeModule } from 'angularx-qrcode';
-import { UpdateUserDialogComponent } from './components/dialogs/update-user-dialog/update-user-dialog.component';
-import { UpdateAdminDialogComponent } from './components/dialogs/update-admin-dialog/update-admin-dialog.component';
-import { AdminPassChangeDialogComponent } from './components/dialogs/admin-pass-change-dialog/admin-pass-change-dialog.component';
-import { AdminDetailsComponent } from './components/admin-details/admin-details.component';
 import { MatSortModule } from '@angular/material/sort';
 import { AboutDialogComponent } from './components/dialogs/about-dialog/about-dialog.component';
-import { CheckInOutComponent } from './components/check-in-out/check-in-out.component';
 import { MessageBoxComponent } from './components/dialogs/message-box/message-box.component';
 import { ConfirmBoxComponent } from './components/dialogs/confirm-box/confirm-box.component';
 import { LicensesComponent } from './components/licenses/licenses.component';
+import { DeviceTableComponent } from './components/device-table/device-table.component';
+import { AddDeviceDialogComponent } from './components/dialogs/add-device-dialog/add-device-dialog/add-device-dialog.component';
+import { HomeComponent } from './components/home/home.component';
+import { UpdateDeviceDialogComponent } from './components/dialogs/update-device-dialog/update-device-dialog/update-device-dialog.component';
+import { LogsTableComponent } from './components/logs-table/logs-table.component';
+import { DatePipe } from '@angular/common';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -43,18 +43,16 @@ import { LicensesComponent } from './components/licenses/licenses.component';
     PageNotFoundComponent,
     LoginComponent,
     RegistrationComponent,
-    AdminDataViewComponent,
-    CreateUserDialogComponent,
     ShowQrCodeDialogComponent,
-    UpdateUserDialogComponent,
-    UpdateAdminDialogComponent,
-    AdminPassChangeDialogComponent,
-    AdminDetailsComponent,
     AboutDialogComponent,
-    CheckInOutComponent,
     MessageBoxComponent,
     ConfirmBoxComponent,
     LicensesComponent,
+    DeviceTableComponent,
+    AddDeviceDialogComponent,
+    HomeComponent,
+    UpdateDeviceDialogComponent,
+    LogsTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,8 +78,9 @@ import { LicensesComponent } from './components/licenses/licenses.component';
     MatDialogModule,
     QRCodeModule,
     MatSortModule,
-  ],
-  providers: [],
+    MatSlideToggleModule,
+    ],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

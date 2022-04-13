@@ -1,1 +1,27 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <button mat-button class="menu-button" routerLink="/">
+        Smart Home™
+    </button>
+    <button mat-button class="menu-button" routerLink="/devices">
+        Devices
+    </button>
+    <button mat-button class="menu-button" routerLink="/logs">
+        Logs
+    </button>
+
+    <span class="menu-spacer"></span>
+
+    <button mat-button class="log-in-out-register-button" routerLink="/login" *ngIf="!authService.isLoggedIn">
+        Login
+    </button>
+    <button mat-button class="log-in-out-register-button" routerLink="/register" *ngIf="!authService.isLoggedIn">
+        Register
+    </button>
+    <button mat-button class="log-in-out-register-button" routerLink="/" (click)="onLogout()" *ngIf="authService.isLoggedIn">
+        Logout
+    </button>
+</mat-toolbar>
+
+<main class="container">
+    <router-outlet></router-outlet>
+</main>

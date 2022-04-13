@@ -1,6 +1,5 @@
 export interface Log {
-  id: string;
-  userId: string;
-  in?: Date;
-  out?: Date;
+  time: Date,
+  text: string
+  ip: string,
 }

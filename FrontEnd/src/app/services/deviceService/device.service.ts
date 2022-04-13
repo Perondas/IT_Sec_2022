@@ -122,7 +122,7 @@ export class DeviceService {
       `${environment.apiUrl}/devices/${device.name}/toggle`,
       {
         method: 'POST',
-        body: JSON.stringify(device.name),
+        body: JSON.stringify(device),
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json'

@@ -45,6 +45,8 @@ export class DeviceTableComponent implements OnInit {
       .getDevices()
       .then((devices) => {
         this.dataSource = new MatTableDataSource(devices);
+        console.log(this.dataSource);
+        console.log("got devices!");
       })
       .catch((err) => {
         this.dialog.open(MessageBoxComponent, {
@@ -121,7 +123,11 @@ export class DeviceTableComponent implements OnInit {
   onToggleDevice(device: Device): void {
     this.deviceService.toggleDevice(device)
     .then(() => {
-      this.getDevices();
+      console.log(device.isOn);
+      device.isOn = !device.isOn;
+      console.log(device.isOn);
+      console.log(this.dataSource);
+      console.log("toggled!");
     })
     .catch((err) => {
       this.dialog.open(MessageBoxComponent, {

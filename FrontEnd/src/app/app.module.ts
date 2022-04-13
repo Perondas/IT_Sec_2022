@@ -35,6 +35,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UpdateDeviceDialogComponent } from './components/dialogs/update-device-dialog/update-device-dialog/update-device-dialog.component';
 import { LogsTableComponent } from './components/logs-table/logs-table.component';
 import { DatePipe } from '@angular/common';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { DatePipe } from '@angular/common';
     MatDialogModule,
     QRCodeModule,
     MatSortModule,
-  ],
+    MatSlideToggleModule,
+    ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
 })

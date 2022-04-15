@@ -37,7 +37,7 @@ export class UpdateDeviceDialogComponent {
       type: d.type,
       manufacturer: d.manufacturer,
       place: d.place,
-      isOn: true
+      isOn: d.isOn
     };
 
     this.dialogRef.close(device);

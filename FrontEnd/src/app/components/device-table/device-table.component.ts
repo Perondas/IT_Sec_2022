@@ -45,8 +45,6 @@ export class DeviceTableComponent implements OnInit {
       .getDevices()
       .then((devices) => {
         this.dataSource = new MatTableDataSource(devices);
-        console.log(this.dataSource);
-        console.log("got devices!");
       })
       .catch((err) => {
         this.dialog.open(MessageBoxComponent, {
@@ -55,11 +53,15 @@ export class DeviceTableComponent implements OnInit {
       });
   }
 
+  private isValidDevice(device: Device): Boolean {
+    return !(device.isOn == null || device.name == '' || device.manufacturer == '' || device.place == '' || device.type == '')
+  }
+
   onAddDevice(): void {
     const dialogRef = this.dialog.open(AddDeviceDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (!result) {
+      if (!this.isValidDevice(result)) {
         return;
       }
 
@@ -104,7 +106,7 @@ export class DeviceTableComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async (result) => {
-      if (!result) {
+      if (!this.isValidDevice(result)) {
         return;
       }
 
@@ -123,11 +125,7 @@ export class DeviceTableComponent implements OnInit {
   onToggleDevice(device: Device): void {
     this.deviceService.toggleDevice(device)
     .then(() => {
-      console.log(device.isOn);
       device.isOn = !device.isOn;
-      console.log(device.isOn);
-      console.log(this.dataSource);
-      console.log("toggled!");
     })
     .catch((err) => {
       this.dialog.open(MessageBoxComponent, {

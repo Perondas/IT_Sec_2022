@@ -31,8 +31,6 @@ export class DeviceService {
       throw new Error('Not logged in!');
     }
 
-    console.log(device);
-
     const response = await fetch(`${environment.apiUrl}/devices`, {
       method: 'POST',
       body: JSON.stringify(device),

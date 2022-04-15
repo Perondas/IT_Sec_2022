@@ -35,7 +35,7 @@ export class AddDeviceDialogComponent {
       type: d.type,
       manufacturer: d.manufacturer,
       place: d.place,
-      isOn: true
+      isOn: false
     };
 
     this.dialogRef.close(device);

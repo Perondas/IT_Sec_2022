@@ -1,5 +1,5 @@
 <div class="main-div">
-  <mat-card class="registration-card">
+  <mat-card>
     <mat-card-title><h1>Register</h1></mat-card-title>
     <mat-card-content>
       <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
@@ -105,19 +105,6 @@
             >
           </mat-form-field>
           <mat-divider></mat-divider>
-          <mat-form-field appearance="fill">
-            <mat-label>Image link</mat-label>
-            <input
-              matInput
-              id="imageLink"
-              type="url"
-              formControlName="imageLink"
-              [defaultValue]=""
-            />
-            <mat-error *ngIf="formMember('imageLink').hasError('pattern')"
-              >Not a valid Url</mat-error
-            >
-          </mat-form-field>
           <mat-divider></mat-divider>
           <button mat-raised-button class="button" type="submit">
             Register
